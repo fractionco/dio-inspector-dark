@@ -74,7 +74,9 @@ class ItemResponseWidget extends StatelessWidget {
             Row(
               children: [
                 Text(
-                  data.request?.time != null ? _formatTime(data.request!.time) : 'n/a',
+                  data.request?.time != null
+                      ? _formatTime(data.request!.time)
+                      : 'n/a',
                   style: const TextStyle(fontSize: 12, color: Colors.grey),
                 ),
                 const Spacer(),

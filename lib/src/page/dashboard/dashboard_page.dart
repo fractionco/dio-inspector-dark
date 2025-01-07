@@ -150,15 +150,18 @@ class _DashboardPageState extends State<DashboardPage> {
               return [
                 const PopupMenuItem(
                   value: SortActivity.byTime,
-                  child: Text('Time'),
+                  child:
+                      Text('Time', style: const TextStyle(color: Colors.black)),
                 ),
                 const PopupMenuItem(
                   value: SortActivity.byMethod,
-                  child: Text('Method'),
+                  child: Text('Method',
+                      style: const TextStyle(color: Colors.black)),
                 ),
                 const PopupMenuItem(
                   value: SortActivity.byStatus,
-                  child: Text('Status'),
+                  child: Text('Status',
+                      style: const TextStyle(color: Colors.black)),
                 ),
               ];
             },
@@ -240,7 +243,8 @@ class _DashboardPageState extends State<DashboardPage> {
               horizontalTitleGap: 0.0,
               minLeadingWidth: 0,
               child: Theme(
-                data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
+                data: Theme.of(context)
+                    .copyWith(dividerColor: Colors.transparent),
                 child: ExpansionTile(
                   tilePadding: const EdgeInsets.symmetric(horizontal: 16),
                   title: const Text('Total'),
@@ -300,7 +304,8 @@ class _DashboardPageState extends State<DashboardPage> {
                                     fontSize: 14,
                                     fontWeight: FontWeight.bold)),
                             SizedBox(height: 5),
-                            Text(_getTotalRequest(filteredActivities, 'delete')),
+                            Text(
+                                _getTotalRequest(filteredActivities, 'delete')),
                           ],
                         ),
                       ],

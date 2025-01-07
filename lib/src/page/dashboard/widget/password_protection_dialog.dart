@@ -82,6 +82,8 @@ class PasswordProtectionDialog extends StatelessWidget {
                             prefixIcon: Icon(Icons.lock),
                             border: OutlineInputBorder(),
                             labelText: 'Password',
+                            labelStyle: TextStyle(color: Colors.black),
+                            hintStyle: TextStyle(color: Colors.black),
                           ),
                         ),
                         const SizedBox(
@@ -99,7 +101,9 @@ class PasswordProtectionDialog extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(8),
                                 ),
                                 side: BorderSide(color: AppColor.primary),
-                                textStyle: const TextStyle(color: Colors.white),
+                                textStyle: const TextStyle(
+                                  color: Colors.white,
+                                ),
                                 backgroundColor: Colors.white,
                               ),
                               child: Text('Cancel',

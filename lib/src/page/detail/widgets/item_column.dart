@@ -32,7 +32,9 @@ class ItemColumn extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(name!, style: const TextStyle(fontWeight: FontWeight.bold)),
+            Text(name!,
+                style: const TextStyle(
+                    fontWeight: FontWeight.bold, color: Colors.black)),
             Visibility(
               visible: showCopyButton,
               child: IconButton(
@@ -58,7 +60,6 @@ class ItemColumn extends StatelessWidget {
               child: Placeholder(),
             ),
           ),
-
         if (!isImage)
           SizedBox(
             width: double.infinity,
@@ -72,6 +73,7 @@ class ItemColumn extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
                   value!.isJson ? value!.prettify : value!,
+                  style: const TextStyle(color: Colors.black),
                 ),
               ),
             ),
