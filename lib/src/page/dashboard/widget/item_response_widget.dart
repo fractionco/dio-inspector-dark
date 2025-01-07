@@ -68,7 +68,8 @@ class ItemResponseWidget extends StatelessWidget {
             ),
             Text(
               data.uri,
-              style: TextStyle(fontSize: 12, color: AppColor.getPrimary(context)),
+              style:
+                  TextStyle(fontSize: 12, color: AppColor.getPrimary(context)),
             ),
             const Divider(color: Colors.grey, endIndent: 12),
             Row(

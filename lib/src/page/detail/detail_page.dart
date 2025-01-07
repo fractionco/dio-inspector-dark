@@ -76,7 +76,9 @@ class _DetailPageState extends State<DetailPage> {
         ),
       ],
       bottom: TabBar(
-        labelStyle: TextStyle(color: AppColor.getPrimary(context)),
+        labelStyle: TextStyle(
+          color: AppColor.getTextColor(context),
+        ),
         indicatorColor: AppColor.getPrimary(context),
         tabs: [
           Tab(
@@ -92,7 +94,8 @@ class _DetailPageState extends State<DetailPage> {
           ),
           Tab(
             text: 'Response',
-            icon: Icon(Icons.arrow_downward, color: AppColor.getPrimary(context)),
+            icon:
+                Icon(Icons.arrow_downward, color: AppColor.getPrimary(context)),
           ),
           Tab(
             text: 'Error',
@@ -213,10 +216,12 @@ class _DetailPageState extends State<DetailPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Icon(Icons.warning, color: AppColor.getPrimary(context), size: 60),
+              Icon(Icons.warning,
+                  color: AppColor.getPrimary(context), size: 60),
               SizedBox(height: 14),
               Text('No error found',
-                  style: TextStyle(color: AppColor.getPrimary(context), fontSize: 20)),
+                  style: TextStyle(
+                      color: AppColor.getPrimary(context), fontSize: 20)),
             ],
           ),
         ),

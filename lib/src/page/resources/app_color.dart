@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
 
 class AppColor {
-  static Color getPrimary(BuildContext context) => Theme.of(context).colorScheme.primary;
+  static Color getPrimary(BuildContext context) => Colors.blue;
   static Color getBackgroundColor(BuildContext context) {
-    return Theme.of(context).scaffoldBackgroundColor;
+    return Colors.white;
   }
 
   static Color getTextColor(BuildContext context) {
-    return Theme.of(context).textTheme.bodyLarge?.color ?? Colors.white;
+    return Colors.black;
   }
 
   static Color getCardColor(BuildContext context) {
-    return Theme.of(context).cardColor;
+    return Colors.grey;
   }
 
   static Color getDividerColor(BuildContext context) {
-    return Theme.of(context).dividerColor;
+    return Colors.grey;
   }
 
   static Color getErrorColor(BuildContext context) {
-    return Theme.of(context).colorScheme.error;
+    return Colors.red;
   }
 
   static Color getSuccessColor(BuildContext context) {
@@ -27,6 +27,6 @@ class AppColor {
   }
 
   static Color getIconColor(BuildContext context) {
-    return Theme.of(context).iconTheme.color ?? Colors.white;
+    return Colors.black;
   }
 }
