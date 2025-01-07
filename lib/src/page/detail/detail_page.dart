@@ -79,7 +79,7 @@ class _DetailPageState extends State<DetailPage> {
         ],
         bottom: TabBar(
           labelStyle: TextStyle(color: AppColor.primary),
-          unselectedLabelStyle: TextStyle(color: AppColor.primary),
+          unselectedLabelStyle: TextStyle(color: Colors.black),
           indicatorColor: AppColor.primary,
           tabs: [
             Tab(
@@ -88,24 +88,18 @@ class _DetailPageState extends State<DetailPage> {
                 Icons.info,
                 color: AppColor.primary,
               ),
-              child:
-                  Text('Overview', style: TextStyle(color: AppColor.primary)),
             ),
             Tab(
               text: 'Request',
               icon: Icon(Icons.arrow_upward, color: AppColor.primary),
-              child: Text('Request', style: TextStyle(color: AppColor.primary)),
             ),
             Tab(
               text: 'Response',
               icon: Icon(Icons.arrow_downward, color: AppColor.primary),
-              child:
-                  Text('Response', style: TextStyle(color: AppColor.primary)),
             ),
             Tab(
               text: 'Error',
               icon: Icon(Icons.warning, color: AppColor.primary),
-              child: Text('Error', style: TextStyle(color: AppColor.primary)),
             ),
           ],
         ),
