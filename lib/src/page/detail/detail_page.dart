@@ -50,6 +50,8 @@ class _DetailPageState extends State<DetailPage> {
         title: Text('Detail Activity',
             style: TextStyle(
               color: AppColor.primary,
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
             )),
         elevation: 3,
         surfaceTintColor: AppColor.white,
@@ -216,7 +218,10 @@ class _DetailPageState extends State<DetailPage> {
               Icon(Icons.warning, color: AppColor.primary, size: 60),
               SizedBox(height: 14),
               Text('No error found',
-                  style: TextStyle(color: AppColor.primary, fontSize: 20)),
+                  style: TextStyle(
+                      color: AppColor.primary,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold)),
             ],
           ),
         ),

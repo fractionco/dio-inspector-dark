@@ -201,7 +201,8 @@ class _DashboardPageState extends State<DashboardPage> {
               }
 
               if (filteredActivities.isEmpty) {
-                return const Text('No data');
+                return const Text('No data',
+                    style: TextStyle(color: Colors.black));
               }
 
               return _buildBody(filteredActivities);
@@ -247,7 +248,8 @@ class _DashboardPageState extends State<DashboardPage> {
                     .copyWith(dividerColor: Colors.transparent),
                 child: ExpansionTile(
                   tilePadding: const EdgeInsets.symmetric(horizontal: 16),
-                  title: const Text('Total'),
+                  title: const Text('Total',
+                      style: TextStyle(color: Colors.black)),
                   children: [
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -260,7 +262,8 @@ class _DashboardPageState extends State<DashboardPage> {
                                     fontSize: 14,
                                     fontWeight: FontWeight.bold)),
                             SizedBox(height: 5),
-                            Text(_getTotalRequest(filteredActivities, 'get')),
+                            Text(_getTotalRequest(filteredActivities, 'get'),
+                                style: TextStyle(color: Colors.black)),
                           ],
                         ),
                         Column(
@@ -271,7 +274,8 @@ class _DashboardPageState extends State<DashboardPage> {
                                     fontSize: 14,
                                     fontWeight: FontWeight.bold)),
                             SizedBox(height: 5),
-                            Text(_getTotalRequest(filteredActivities, 'post')),
+                            Text(_getTotalRequest(filteredActivities, 'post'),
+                                style: TextStyle(color: Colors.black)),
                           ],
                         ),
                         Column(
@@ -282,7 +286,8 @@ class _DashboardPageState extends State<DashboardPage> {
                                     fontSize: 14,
                                     fontWeight: FontWeight.bold)),
                             SizedBox(height: 5),
-                            Text(_getTotalRequest(filteredActivities, 'put')),
+                            Text(_getTotalRequest(filteredActivities, 'put'),
+                                style: TextStyle(color: Colors.black)),
                           ],
                         ),
                         Column(
@@ -293,7 +298,8 @@ class _DashboardPageState extends State<DashboardPage> {
                                     fontSize: 14,
                                     fontWeight: FontWeight.bold)),
                             SizedBox(height: 5),
-                            Text(_getTotalRequest(filteredActivities, 'patch')),
+                            Text(_getTotalRequest(filteredActivities, 'patch'),
+                                style: TextStyle(color: Colors.black)),
                           ],
                         ),
                         Column(
@@ -304,8 +310,8 @@ class _DashboardPageState extends State<DashboardPage> {
                                     fontSize: 14,
                                     fontWeight: FontWeight.bold)),
                             SizedBox(height: 5),
-                            Text(
-                                _getTotalRequest(filteredActivities, 'delete')),
+                            Text(_getTotalRequest(filteredActivities, 'delete'),
+                                style: TextStyle(color: Colors.black)),
                           ],
                         ),
                       ],

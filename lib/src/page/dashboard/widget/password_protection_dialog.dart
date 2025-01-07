@@ -79,11 +79,13 @@ class PasswordProtectionDialog extends StatelessWidget {
                           },
                           decoration: const InputDecoration(
                             hintText: 'Enter your password',
-                            prefixIcon: Icon(Icons.lock),
+                            prefixIcon: Icon(Icons.lock, color: Colors.black),
                             border: OutlineInputBorder(),
                             labelText: 'Password',
-                            labelStyle: TextStyle(color: Colors.black),
-                            hintStyle: TextStyle(color: Colors.black),
+                            labelStyle:
+                                TextStyle(color: Colors.black, fontSize: 14),
+                            hintStyle:
+                                TextStyle(color: Colors.black, fontSize: 14),
                           ),
                         ),
                         const SizedBox(

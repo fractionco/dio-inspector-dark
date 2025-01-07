@@ -58,6 +58,7 @@ class ItemRow extends StatelessWidget {
           child: value != null
               ? Text(
                   value!,
+                  style: const TextStyle(color: Colors.black),
                 )
               : const SizedBox(),
         ),
@@ -84,7 +85,8 @@ class ItemRow extends StatelessWidget {
           ),
           SelectableText(
             '$name: ',
-            style: const TextStyle(fontWeight: FontWeight.bold),
+            style: const TextStyle(
+                fontWeight: FontWeight.bold, color: Colors.black),
           ),
           const Padding(
             padding: EdgeInsets.only(left: 5),
@@ -92,6 +94,7 @@ class ItemRow extends StatelessWidget {
           Flexible(
             child: SelectableText(
               value.toString(),
+              style: const TextStyle(color: Colors.black),
             ),
           ),
           const Padding(
