@@ -98,14 +98,12 @@ class PasswordProtectionDialog extends StatelessWidget {
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(8),
                                 ),
-                                side: BorderSide(
-                                    color: AppColor.getPrimary(context)),
+                                side: BorderSide(color: AppColor.primary),
                                 textStyle: const TextStyle(color: Colors.white),
                                 backgroundColor: Colors.white,
                               ),
                               child: Text('Cancel',
-                                  style: TextStyle(
-                                      color: AppColor.getPrimary(context))),
+                                  style: TextStyle(color: AppColor.primary)),
                             ),
                           ),
                           const SizedBox(
@@ -122,10 +120,9 @@ class PasswordProtectionDialog extends StatelessWidget {
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(8),
                                 ),
-                                side: BorderSide(
-                                    color: AppColor.getPrimary(context)),
+                                side: BorderSide(color: AppColor.primary),
                                 textStyle: const TextStyle(color: Colors.white),
-                                backgroundColor: AppColor.getPrimary(context),
+                                backgroundColor: AppColor.primary,
                               ),
                               child: const Text('Submit',
                                   style: TextStyle(color: Colors.white)),

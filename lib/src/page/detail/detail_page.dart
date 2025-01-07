@@ -23,7 +23,7 @@ class _DetailPageState extends State<DetailPage> {
         length: 4,
         child: Scaffold(
           floatingActionButton: FloatingActionButton(
-            backgroundColor: AppColor.getPrimary(context),
+            backgroundColor: AppColor.primary,
             shape: const CircleBorder(),
             onPressed: () {
               Helper.copyToClipboard(
@@ -31,13 +31,13 @@ class _DetailPageState extends State<DetailPage> {
                 text: Copy.getActivity(widget.data),
                 message: 'Activity copied to clipboard',
               );
-            },
+             },
             child: Icon(
               Icons.copy,
-              color: AppColor.getIconColor(context),
+              color: AppColor.white,
             ),
           ),
-          backgroundColor: AppColor.getIconColor(context),
+          backgroundColor: AppColor.white,
           appBar: _appBar(context),
           body: _buildBody(context),
         ),
@@ -47,63 +47,60 @@ class _DetailPageState extends State<DetailPage> {
 
   PreferredSizeWidget _appBar(BuildContext context) {
     return AppBar(
-      title: Text('Detail Activity',
-          style: TextStyle(
-            color: AppColor.getPrimary(context),
-          )),
-      elevation: 3,
-      surfaceTintColor: AppColor.getIconColor(context),
-      leading: IconButton(
-        onPressed: () {
-          Navigator.pop(context);
-        },
-        icon: Icon(Icons.arrow_back, color: AppColor.getIconColor(context)),
-      ),
-      actions: [
-        IconButton(
-          icon: Icon(
-            Icons.code,
-            size: 20,
-            color: AppColor.getPrimary(context),
-          ),
+        title: Text('Detail Activity',
+            style: TextStyle(
+              color: AppColor.primary,
+            )),
+        elevation: 3,
+        surfaceTintColor: AppColor.white,
+        leading: IconButton(
           onPressed: () {
-            Helper.copyToClipboard(
-              context: context,
-              text: Copy.getCurlCommand(widget.data),
-              message: 'Curl command copied to clipboard',
-            );
+            Navigator.pop(context);
           },
+          icon: Icon(Icons.arrow_back, color: AppColor.primary),
         ),
-      ],
-      bottom: TabBar(
-        labelStyle: TextStyle(
-          color: AppColor.getTextColor(context),
-        ),
-        indicatorColor: AppColor.getPrimary(context),
-        tabs: [
-          Tab(
-            text: 'Overview',
+        actions: [
+          IconButton(
             icon: Icon(
-              Icons.info,
-              color: AppColor.getPrimary(context),
+              Icons.code,
+              size: 20,
+              color: AppColor.primary,
             ),
-          ),
-          Tab(
-            text: 'Request',
-            icon: Icon(Icons.arrow_upward, color: AppColor.getPrimary(context)),
-          ),
-          Tab(
-            text: 'Response',
-            icon:
-                Icon(Icons.arrow_downward, color: AppColor.getPrimary(context)),
-          ),
-          Tab(
-            text: 'Error',
-            icon: Icon(Icons.warning, color: AppColor.getPrimary(context)),
+            onPressed: () {
+              Helper.copyToClipboard(
+                context: context,
+                text: Copy.getCurlCommand(widget.data),
+                message: 'Curl command copied to clipboard',
+              );
+            },
           ),
         ],
-      ),
-    );
+        bottom: TabBar(
+          labelStyle: TextStyle(color: AppColor.primary),
+          indicatorColor: AppColor.primary,
+          tabs: [
+            Tab(
+              text: 'Overview',
+              icon: Icon(
+                Icons.info,
+                color: AppColor.primary,
+              ),
+            ),
+            Tab(
+              text: 'Request',
+              icon: Icon(Icons.arrow_upward, color: AppColor.primary),
+            ),
+            Tab(
+              text: 'Response',
+              icon: Icon(Icons.arrow_downward, color: AppColor.primary),
+            ),
+            Tab(
+              text: 'Error',
+              icon: Icon(Icons.warning, color: AppColor.primary),
+            ),
+          ],
+        ),
+        backgroundColor: AppColor.white);
   }
 
   Widget _buildBody(BuildContext context) {
@@ -173,8 +170,7 @@ class _DetailPageState extends State<DetailPage> {
 
   Widget _responseWidget(HttpActivity data) {
     var contentTypeList = data.response?.headers?["content-type"];
-    final isImage = contentTypeList != null &&
-        contentTypeList.any((element) => element.contains('image'));
+    final isImage = contentTypeList != null && contentTypeList.any((element) => element.contains('image'));
 
     return SingleChildScrollView(
       physics: const BouncingScrollPhysics(),
@@ -183,24 +179,11 @@ class _DetailPageState extends State<DetailPage> {
         child: Column(
           children: [
             ItemRow(name: 'Received :', value: data.response?.time.toString()),
-            ItemRow(
-                name: 'Status Code :', value: data.response?.status.toString()),
-            ItemRow(
-                name: 'Bytes Received :',
-                value: Helper.formatBytes(data.response?.size ?? 0)),
-            ItemRow(
-                name: 'Headers',
-                value: Helper.encodeRawJson(data.response?.headers),
-                useHeaderFormat: true),
-            if (!isImage)
-              ItemColumn(name: 'Body :', value: data.response?.body),
-            if (isImage)
-              ItemColumn(
-                name: 'Body :',
-                value: '',
-                isImage: isImage,
-                showCopyButton: false,
-              ),
+            ItemRow(name: 'Status Code :', value: data.response?.status.toString()),
+            ItemRow(name: 'Bytes Received :', value: Helper.formatBytes(data.response?.size ?? 0)),
+            ItemRow(name: 'Headers', value: Helper.encodeRawJson(data.response?.headers), useHeaderFormat: true),
+            if (!isImage) ItemColumn(name: 'Body :', value: data.response?.body),
+            if (isImage) ItemColumn(name: 'Body :', value: '', isImage: isImage, showCopyButton: false,),
           ],
         ),
       ),
@@ -216,18 +199,14 @@ class _DetailPageState extends State<DetailPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Icon(Icons.warning,
-                  color: AppColor.getPrimary(context), size: 60),
+              Icon(Icons.warning, color: AppColor.primary, size: 60),
               SizedBox(height: 14),
-              Text('No error found',
-                  style: TextStyle(
-                      color: AppColor.getPrimary(context), fontSize: 20)),
+              Text('No error found', style: TextStyle(color: AppColor.primary, fontSize: 20)),
             ],
           ),
         ),
       );
-    }
-    ;
+    };
 
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),

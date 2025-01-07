@@ -1,10 +1,10 @@
 name: dio_request_inspector
-description: A dark-themed HTTP inspector for Dio, which can intercept and log HTTP requests and responses. Fork of dio_request_inspector.
-version: 1.0.0
-homepage: https://github.com/fractionco/dio-inspector-dark
+description: A HTTP inspector for Dio, which can intercept and log HTTP requests and responses.
+version: 3.1.6
+homepage: https://github.com/bayunugroho2022/dio-request-inspector
 
 environment:
-  sdk: ">=3.1.4 <4.0.0"
+  sdk: '>=3.1.4 <4.0.0'
   flutter: ">=1.17.0"
 
 dependencies:

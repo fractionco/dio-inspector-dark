@@ -54,9 +54,7 @@ class Interceptor extends InterceptorsWrapper {
 
     uri.queryParameters.forEach((key, value) {
       if (mergedQueryParameters.containsKey(key)) {
-        mergedQueryParameters[key] = [mergedQueryParameters[key], value]
-            .expand((e) => e is List ? e : [e])
-            .toList();
+        mergedQueryParameters[key] = [mergedQueryParameters[key], value].expand((e) => e is List ? e : [e]).toList();
       } else {
         mergedQueryParameters[key] = value;
       }
@@ -65,11 +63,11 @@ class Interceptor extends InterceptorsWrapper {
     options.queryParameters.forEach((key, value) {
       if (!mergedQueryParameters.containsKey(key)) {
         mergedQueryParameters[key] = value;
-      }
+      } 
     });
-
+    
     final dynamic data = options.data;
-
+    
     if (data == null) {
       request..size = 0;
     } else {
@@ -84,7 +82,7 @@ class Interceptor extends InterceptorsWrapper {
           }
 
           request.formDataFields = fields;
-          request.body = jsonEncode(map);
+          request.body = jsonEncode(map); 
         }
 
         if (data.files.isNotEmpty == true) {
@@ -138,8 +136,8 @@ class Interceptor extends InterceptorsWrapper {
       httpResponse..size = 0;
     } else {
       httpResponse
-        ..body = Helper.encodeRawJson(response.data)
-        ..size = utf8.encode(response.data.toString()).length;
+      ..body = Helper.encodeRawJson(response.data)
+      ..size = utf8.encode(response.data.toString()).length;
     }
 
     httpResponse.time = DateTime.now();

@@ -3,6 +3,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'dio_request_inspector_setting.dart';
 
+
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(DioRequestInspectorMain(inspector: inspector, child: const MyApp()));
@@ -65,8 +66,7 @@ class _MyHomePageState extends State<MyHomePage> {
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.purple.withOpacity(0.6),
               ),
-              child: const Text("GET Request",
-                  style: TextStyle(color: Colors.white)),
+              child: const Text("GET Request", style: TextStyle(color: Colors.white)),
             ),
             const SizedBox(
               height: 16,
@@ -76,8 +76,7 @@ class _MyHomePageState extends State<MyHomePage> {
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.purple.withOpacity(0.6),
               ),
-              child: const Text("GET Image Request",
-                  style: TextStyle(color: Colors.white)),
+              child: const Text("GET Image Request", style: TextStyle(color: Colors.white)),
             ),
             const SizedBox(
               height: 16,
@@ -87,8 +86,7 @@ class _MyHomePageState extends State<MyHomePage> {
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.purple.withOpacity(0.6),
               ),
-              child: const Text("POST Request",
-                  style: TextStyle(color: Colors.white)),
+              child: const Text("POST Request", style: TextStyle(color: Colors.white)),
             ),
             const SizedBox(
               height: 16,
@@ -101,8 +99,7 @@ class _MyHomePageState extends State<MyHomePage> {
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.purple.withOpacity(0.6),
               ),
-              child: const Text("Error Request",
-                  style: TextStyle(color: Colors.white)),
+              child: const Text("Error Request", style: TextStyle(color: Colors.white)),
             ),
             const SizedBox(
               height: 16,
@@ -112,8 +109,7 @@ class _MyHomePageState extends State<MyHomePage> {
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.purple.withOpacity(0.6),
               ),
-              child: const Text("Open Inspector",
-                  style: TextStyle(color: Colors.white)),
+              child: const Text("Open Inspector", style: TextStyle(color: Colors.white)),
             ),
             const SizedBox(
               height: 16,

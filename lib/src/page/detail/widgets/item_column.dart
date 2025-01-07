@@ -1,7 +1,6 @@
 import 'package:dio_request_inspector/src/common/extensions.dart';
 import 'package:dio_request_inspector/src/common/helpers.dart';
 import 'package:flutter/material.dart';
-import 'package:dio_request_inspector/src/page/resources/app_color.dart';
 
 class ItemColumn extends StatelessWidget {
   final String? name;
@@ -19,57 +18,65 @@ class ItemColumn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-      decoration: BoxDecoration(
-        color: AppColor.getCardColor(context),
-        border: Border(
-          bottom: BorderSide(
-            color: AppColor.getDividerColor(context),
-            width: 0.5,
-          ),
+    if (value == null) {
+      return const SizedBox();
+    }
+
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SizedBox(
+          height: 8,
         ),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            name!,
-            style: TextStyle(
-              color: AppColor.getTextColor(context),
-              fontWeight: FontWeight.bold,
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(name!, style: const TextStyle(fontWeight: FontWeight.bold)),
+            Visibility(
+              visible: showCopyButton,
+              child: IconButton(
+                icon: const Icon(
+                  Icons.copy,
+                  size: 16,
+                  color: Colors.grey,
+                ),
+                onPressed: () {
+                  Helper.copyToClipboard(
+                      text: value!.isJson ? value!.prettify : value!,
+                      context: context);
+                },
+              ),
+            ),
+          ],
+        ),
+        if (isImage)
+          Center(
+            child: SizedBox(
+              width: 200,
+              height: 200,
+              child: Placeholder(),
             ),
           ),
-          const SizedBox(height: 8),
-          if (value == null) const SizedBox(),
-          if (isImage)
-            Center(
-              child: SizedBox(
-                width: 200,
-                height: 200,
-                child: Placeholder(),
+
+        if (!isImage)
+          SizedBox(
+            width: double.infinity,
+            child: Card(
+              elevation: 0,
+              color: Colors.grey[100],
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(4),
               ),
-            ),
-          if (!isImage)
-            SizedBox(
-              width: double.infinity,
-              child: Card(
-                elevation: 0,
-                color: Colors.grey[100],
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(4),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    value!.isJson ? value!.prettify : value!,
-                    style: TextStyle(color: AppColor.getTextColor(context)),
-                  ),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  value!.isJson ? value!.prettify : value!,
                 ),
               ),
             ),
-        ],
-      ),
+          ),
+      ],
     );
   }
 }

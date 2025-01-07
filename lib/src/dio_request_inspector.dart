@@ -16,7 +16,9 @@ class DioRequestInspector {
   factory DioRequestInspector({
     required bool isDebugMode,
     Duration? duration = const Duration(milliseconds: 500),
-    @Deprecated('will be removed in 3.1.5 or higher') bool showFloating = true,
+ 
+    @Deprecated('will be removed in 3.1.5 or higher')
+    bool showFloating = true,
     String? password = '',
   }) {
     _instance._init(isDebugMode, duration, showFloating, password);
@@ -29,8 +31,7 @@ class DioRequestInspector {
         duration = const Duration(milliseconds: 500),
         password = '';
 
-  void _init(bool isDebugMode, Duration? duration, bool showFloating,
-      String? password) {
+  void _init(bool isDebugMode, Duration? duration, bool showFloating, String? password) {
     this.isDebugMode = isDebugMode;
     this.duration = duration;
     this.showFloating = showFloating;
@@ -51,14 +52,13 @@ class DioRequestInspector {
       return;
     }
 
-    navigateToInspector();
+   navigateToInspector();
   }
 
   void navigateToInspector() {
     navigatorObserver.navigator?.push(
       MaterialPageRoute<dynamic>(
-        builder: (_) =>
-            DashboardPage(password: password ?? '', storage: _storage),
+        builder: (_) => DashboardPage(password: password ?? '', storage: _storage),
       ),
     );
   }

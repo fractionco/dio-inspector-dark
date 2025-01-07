@@ -26,7 +26,7 @@ class ItemResponseWidget extends StatelessWidget {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              _buildRequestInfo(context),
+              _buildRequestInfo(),
               _buildStatusCode(),
             ],
           ),
@@ -35,7 +35,7 @@ class ItemResponseWidget extends StatelessWidget {
     );
   }
 
-  Widget _buildRequestInfo(BuildContext context) {
+  Widget _buildRequestInfo() {
     return Expanded(
       child: Padding(
         padding: const EdgeInsets.only(left: 8.0),
@@ -47,7 +47,7 @@ class ItemResponseWidget extends StatelessWidget {
                 Text(
                   data.method,
                   style: TextStyle(
-                    color: AppColor.getPrimary(context),
+                    color: AppColor.primary,
                     fontSize: 14,
                     fontWeight: FontWeight.bold,
                   ),
@@ -59,7 +59,7 @@ class ItemResponseWidget extends StatelessWidget {
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
-                      color: AppColor.getPrimary(context),
+                      color: AppColor.primary,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -68,16 +68,13 @@ class ItemResponseWidget extends StatelessWidget {
             ),
             Text(
               data.uri,
-              style:
-                  TextStyle(fontSize: 12, color: AppColor.getPrimary(context)),
+              style: TextStyle(fontSize: 12, color: AppColor.primary),
             ),
             const Divider(color: Colors.grey, endIndent: 12),
             Row(
               children: [
                 Text(
-                  data.request?.time != null
-                      ? _formatTime(data.request!.time)
-                      : 'n/a',
+                  data.request?.time != null ? _formatTime(data.request!.time) : 'n/a',
                   style: const TextStyle(fontSize: 12, color: Colors.grey),
                 ),
                 const Spacer(),
