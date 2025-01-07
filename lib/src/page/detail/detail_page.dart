@@ -18,31 +18,33 @@ class DetailPage extends StatefulWidget {
 class _DetailPageState extends State<DetailPage> {
   @override
   Widget build(BuildContext context) {
-    return SelectionArea(
-      child: DefaultTabController(
-        length: 4,
-        child: Scaffold(
-          floatingActionButton: FloatingActionButton(
-            backgroundColor: AppColor.primary,
-            shape: const CircleBorder(),
-            onPressed: () {
-              Helper.copyToClipboard(
-                context: context,
-                text: Copy.getActivity(widget.data),
-                message: 'Activity copied to clipboard',
-              );
-            },
-            child: Icon(
-              Icons.copy,
-              color: AppColor.white,
+    return Theme(
+        data: ThemeData.light(),
+        child: SelectionArea(
+          child: DefaultTabController(
+            length: 4,
+            child: Scaffold(
+              floatingActionButton: FloatingActionButton(
+                backgroundColor: AppColor.primary,
+                shape: const CircleBorder(),
+                onPressed: () {
+                  Helper.copyToClipboard(
+                    context: context,
+                    text: Copy.getActivity(widget.data),
+                    message: 'Activity copied to clipboard',
+                  );
+                },
+                child: Icon(
+                  Icons.copy,
+                  color: AppColor.white,
+                ),
+              ),
+              backgroundColor: AppColor.white,
+              appBar: _appBar(context),
+              body: _buildBody(context),
             ),
           ),
-          backgroundColor: AppColor.white,
-          appBar: _appBar(context),
-          body: _buildBody(context),
-        ),
-      ),
-    );
+        ));
   }
 
   PreferredSizeWidget _appBar(BuildContext context) {
