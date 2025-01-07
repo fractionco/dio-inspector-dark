@@ -1,13 +1,13 @@
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
-import 'package:dio_request_inspector/src/common/helpers.dart';
-import 'package:dio_request_inspector/src/common/storage.dart';
-import 'package:dio_request_inspector/src/model/form_data.dart';
-import 'package:dio_request_inspector/src/model/http_activity.dart';
-import 'package:dio_request_inspector/src/model/http_error.dart';
-import 'package:dio_request_inspector/src/model/http_request.dart';
-import 'package:dio_request_inspector/src/model/http_response.dart';
+import 'package:dio_inspector_dark/src/common/helpers.dart';
+import 'package:dio_inspector_dark/src/common/storage.dart';
+import 'package:dio_inspector_dark/src/model/form_data.dart';
+import 'package:dio_inspector_dark/src/model/http_activity.dart';
+import 'package:dio_inspector_dark/src/model/http_error.dart';
+import 'package:dio_inspector_dark/src/model/http_request.dart';
+import 'package:dio_inspector_dark/src/model/http_response.dart';
 import 'package:flutter/material.dart';
 
 class Interceptor extends InterceptorsWrapper {

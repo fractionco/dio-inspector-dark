@@ -1,6 +1,6 @@
-import 'package:dio_request_inspector/src/common/storage.dart';
-import 'package:dio_request_inspector/src/interceptor.dart';
-import 'package:dio_request_inspector/src/page/dashboard/dashboard_page.dart';
+import 'package:dio_inspector_dark/src/common/storage.dart';
+import 'package:dio_inspector_dark/src/interceptor.dart';
+import 'package:dio_inspector_dark/src/page/dashboard/dashboard_page.dart';
 import 'package:flutter/material.dart';
 
 class DioRequestInspector {

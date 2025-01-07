@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:dio_request_inspector/src/common/helpers.dart';
-import 'package:dio_request_inspector/src/model/http_activity.dart';
-import 'package:dio_request_inspector/src/page/resources/app_color.dart';
-import 'package:dio_request_inspector/src/page/dashboard/widget/dot_indicator_widget.dart';
+import 'package:dio_inspector_dark/src/common/helpers.dart';
+import 'package:dio_inspector_dark/src/model/http_activity.dart';
+import 'package:dio_inspector_dark/src/page/resources/app_color.dart';
+import 'package:dio_inspector_dark/src/page/dashboard/widget/dot_indicator_widget.dart';
 
 class ItemResponseWidget extends StatelessWidget {
   final HttpActivity data;

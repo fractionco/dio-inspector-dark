@@ -1,9 +1,9 @@
-import 'package:dio_request_inspector/src/common/copy.dart';
-import 'package:dio_request_inspector/src/common/helpers.dart';
-import 'package:dio_request_inspector/src/model/http_activity.dart';
-import 'package:dio_request_inspector/src/page/detail/widgets/item_column.dart';
-import 'package:dio_request_inspector/src/page/detail/widgets/item_row.dart';
-import 'package:dio_request_inspector/src/page/resources/app_color.dart';
+import 'package:dio_inspector_dark/src/common/copy.dart';
+import 'package:dio_inspector_dark/src/common/helpers.dart';
+import 'package:dio_inspector_dark/src/model/http_activity.dart';
+import 'package:dio_inspector_dark/src/page/detail/widgets/item_column.dart';
+import 'package:dio_inspector_dark/src/page/detail/widgets/item_row.dart';
+import 'package:dio_inspector_dark/src/page/resources/app_color.dart';
 import 'package:flutter/material.dart';
 
 class DetailPage extends StatefulWidget {

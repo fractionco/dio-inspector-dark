@@ -1,8 +1,8 @@
 import 'dart:io';
 
-import 'package:dio_request_inspector/src/common/extensions.dart';
-import 'package:dio_request_inspector/src/common/helpers.dart';
-import 'package:dio_request_inspector/src/model/http_activity.dart';
+import 'package:dio_inspector_dark/src/common/extensions.dart';
+import 'package:dio_inspector_dark/src/common/helpers.dart';
+import 'package:dio_inspector_dark/src/model/http_activity.dart';
 
 class Copy {
   static String getCurlCommand(HttpActivity call) {
