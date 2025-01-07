@@ -18,91 +18,89 @@ class DetailPage extends StatefulWidget {
 class _DetailPageState extends State<DetailPage> {
   @override
   Widget build(BuildContext context) {
-    return Theme(
-        data: ThemeData.light(),
-        child: SelectionArea(
-          child: DefaultTabController(
-            length: 4,
-            child: Scaffold(
-              floatingActionButton: FloatingActionButton(
-                backgroundColor: AppColor.primary,
-                shape: const CircleBorder(),
-                onPressed: () {
-                  Helper.copyToClipboard(
-                    context: context,
-                    text: Copy.getActivity(widget.data),
-                    message: 'Activity copied to clipboard',
-                  );
-                },
-                child: Icon(
-                  Icons.copy,
-                  color: AppColor.white,
-                ),
-              ),
-              backgroundColor: AppColor.white,
-              appBar: _appBar(context),
-              body: _buildBody(context),
+    return SelectionArea(
+      child: DefaultTabController(
+        length: 4,
+        child: Scaffold(
+          floatingActionButton: FloatingActionButton(
+            backgroundColor: AppColor.getPrimary(context),
+            shape: const CircleBorder(),
+            onPressed: () {
+              Helper.copyToClipboard(
+                context: context,
+                text: Copy.getActivity(widget.data),
+                message: 'Activity copied to clipboard',
+              );
+            },
+            child: Icon(
+              Icons.copy,
+              color: AppColor.getIconColor(context),
             ),
           ),
-        ));
+          backgroundColor: AppColor.getIconColor(context),
+          appBar: _appBar(context),
+          body: _buildBody(context),
+        ),
+      ),
+    );
   }
 
   PreferredSizeWidget _appBar(BuildContext context) {
     return AppBar(
-        title: Text('Detail Activity',
-            style: TextStyle(
-              color: AppColor.primary,
-            )),
-        elevation: 3,
-        surfaceTintColor: AppColor.white,
-        leading: IconButton(
+      title: Text('Detail Activity',
+          style: TextStyle(
+            color: AppColor.getPrimary(context),
+          )),
+      elevation: 3,
+      surfaceTintColor: AppColor.getIconColor(context),
+      leading: IconButton(
+        onPressed: () {
+          Navigator.pop(context);
+        },
+        icon: Icon(Icons.arrow_back, color: AppColor.getIconColor(context)),
+      ),
+      actions: [
+        IconButton(
+          icon: Icon(
+            Icons.code,
+            size: 20,
+            color: AppColor.getPrimary(context),
+          ),
           onPressed: () {
-            Navigator.pop(context);
+            Helper.copyToClipboard(
+              context: context,
+              text: Copy.getCurlCommand(widget.data),
+              message: 'Curl command copied to clipboard',
+            );
           },
-          icon: Icon(Icons.arrow_back, color: AppColor.primary),
         ),
-        actions: [
-          IconButton(
+      ],
+      bottom: TabBar(
+        labelStyle: TextStyle(color: AppColor.getPrimary(context)),
+        indicatorColor: AppColor.getPrimary(context),
+        tabs: [
+          Tab(
+            text: 'Overview',
             icon: Icon(
-              Icons.code,
-              size: 20,
-              color: AppColor.primary,
+              Icons.info,
+              color: AppColor.getPrimary(context),
             ),
-            onPressed: () {
-              Helper.copyToClipboard(
-                context: context,
-                text: Copy.getCurlCommand(widget.data),
-                message: 'Curl command copied to clipboard',
-              );
-            },
+          ),
+          Tab(
+            text: 'Request',
+            icon: Icon(Icons.arrow_upward, color: AppColor.getPrimary(context)),
+          ),
+          Tab(
+            text: 'Response',
+            icon: Icon(Icons.arrow_downward, color: AppColor.getPrimary(context)),
+          ),
+          Tab(
+            text: 'Error',
+            icon: Icon(Icons.warning, color: AppColor.getPrimary(context)),
           ),
         ],
-        bottom: TabBar(
-          labelStyle: TextStyle(color: AppColor.primary),
-          indicatorColor: AppColor.primary,
-          tabs: [
-            Tab(
-              text: 'Overview',
-              icon: Icon(
-                Icons.info,
-                color: AppColor.primary,
-              ),
-            ),
-            Tab(
-              text: 'Request',
-              icon: Icon(Icons.arrow_upward, color: AppColor.primary),
-            ),
-            Tab(
-              text: 'Response',
-              icon: Icon(Icons.arrow_downward, color: AppColor.primary),
-            ),
-            Tab(
-              text: 'Error',
-              icon: Icon(Icons.warning, color: AppColor.primary),
-            ),
-          ],
-        ),
-        backgroundColor: AppColor.white);
+      ),
+    );
   }
 
   Widget _buildBody(BuildContext context) {
@@ -215,10 +213,10 @@ class _DetailPageState extends State<DetailPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Icon(Icons.warning, color: AppColor.primary, size: 60),
+              Icon(Icons.warning, color: AppColor.getPrimary(context), size: 60),
               SizedBox(height: 14),
               Text('No error found',
-                  style: TextStyle(color: AppColor.primary, fontSize: 20)),
+                  style: TextStyle(color: AppColor.getPrimary(context), fontSize: 20)),
             ],
           ),
         ),

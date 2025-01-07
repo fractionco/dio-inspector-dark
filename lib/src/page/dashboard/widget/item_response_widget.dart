@@ -26,7 +26,7 @@ class ItemResponseWidget extends StatelessWidget {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              _buildRequestInfo(),
+              _buildRequestInfo(context),
               _buildStatusCode(),
             ],
           ),
@@ -35,7 +35,7 @@ class ItemResponseWidget extends StatelessWidget {
     );
   }
 
-  Widget _buildRequestInfo() {
+  Widget _buildRequestInfo(BuildContext context) {
     return Expanded(
       child: Padding(
         padding: const EdgeInsets.only(left: 8.0),
@@ -47,7 +47,7 @@ class ItemResponseWidget extends StatelessWidget {
                 Text(
                   data.method,
                   style: TextStyle(
-                    color: AppColor.primary,
+                    color: AppColor.getPrimary(context),
                     fontSize: 14,
                     fontWeight: FontWeight.bold,
                   ),
@@ -59,7 +59,7 @@ class ItemResponseWidget extends StatelessWidget {
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
-                      color: AppColor.primary,
+                      color: AppColor.getPrimary(context),
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -68,7 +68,7 @@ class ItemResponseWidget extends StatelessWidget {
             ),
             Text(
               data.uri,
-              style: TextStyle(fontSize: 12, color: AppColor.primary),
+              style: TextStyle(fontSize: 12, color: AppColor.getPrimary(context)),
             ),
             const Divider(color: Colors.grey, endIndent: 12),
             Row(
