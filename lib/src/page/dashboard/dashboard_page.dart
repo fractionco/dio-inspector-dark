@@ -1,10 +1,10 @@
-import 'package:dio_inspector_dark/src/common/enum.dart';
-import 'package:dio_inspector_dark/src/common/storage.dart';
-import 'package:dio_inspector_dark/src/model/http_activity.dart';
-import 'package:dio_inspector_dark/src/page/dashboard/widget/item_response_widget.dart';
-import 'package:dio_inspector_dark/src/page/dashboard/widget/password_protection_dialog.dart';
-import 'package:dio_inspector_dark/src/page/detail/detail_page.dart';
-import 'package:dio_inspector_dark/src/page/resources/app_color.dart';
+import 'package:dio_request_inspector/src/common/enum.dart';
+import 'package:dio_request_inspector/src/common/storage.dart';
+import 'package:dio_request_inspector/src/model/http_activity.dart';
+import 'package:dio_request_inspector/src/page/dashboard/widget/item_response_widget.dart';
+import 'package:dio_request_inspector/src/page/dashboard/widget/password_protection_dialog.dart';
+import 'package:dio_request_inspector/src/page/detail/detail_page.dart';
+import 'package:dio_request_inspector/src/page/resources/app_color.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 
@@ -240,7 +240,8 @@ class _DashboardPageState extends State<DashboardPage> {
               horizontalTitleGap: 0.0,
               minLeadingWidth: 0,
               child: Theme(
-                data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
+                data: Theme.of(context)
+                    .copyWith(dividerColor: Colors.transparent),
                 child: ExpansionTile(
                   tilePadding: const EdgeInsets.symmetric(horizontal: 16),
                   title: const Text('Total'),
@@ -300,7 +301,8 @@ class _DashboardPageState extends State<DashboardPage> {
                                     fontSize: 14,
                                     fontWeight: FontWeight.bold)),
                             SizedBox(height: 5),
-                            Text(_getTotalRequest(filteredActivities, 'delete')),
+                            Text(
+                                _getTotalRequest(filteredActivities, 'delete')),
                           ],
                         ),
                       ],

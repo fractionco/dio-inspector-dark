@@ -1,13 +1,13 @@
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
-import 'package:dio_inspector_dark/src/common/helpers.dart';
-import 'package:dio_inspector_dark/src/common/storage.dart';
-import 'package:dio_inspector_dark/src/model/form_data.dart';
-import 'package:dio_inspector_dark/src/model/http_activity.dart';
-import 'package:dio_inspector_dark/src/model/http_error.dart';
-import 'package:dio_inspector_dark/src/model/http_request.dart';
-import 'package:dio_inspector_dark/src/model/http_response.dart';
+import 'package:dio_request_inspector/src/common/helpers.dart';
+import 'package:dio_request_inspector/src/common/storage.dart';
+import 'package:dio_request_inspector/src/model/form_data.dart';
+import 'package:dio_request_inspector/src/model/http_activity.dart';
+import 'package:dio_request_inspector/src/model/http_error.dart';
+import 'package:dio_request_inspector/src/model/http_request.dart';
+import 'package:dio_request_inspector/src/model/http_response.dart';
 import 'package:flutter/material.dart';
 
 class Interceptor extends InterceptorsWrapper {
@@ -54,7 +54,9 @@ class Interceptor extends InterceptorsWrapper {
 
     uri.queryParameters.forEach((key, value) {
       if (mergedQueryParameters.containsKey(key)) {
-        mergedQueryParameters[key] = [mergedQueryParameters[key], value].expand((e) => e is List ? e : [e]).toList();
+        mergedQueryParameters[key] = [mergedQueryParameters[key], value]
+            .expand((e) => e is List ? e : [e])
+            .toList();
       } else {
         mergedQueryParameters[key] = value;
       }
@@ -63,11 +65,11 @@ class Interceptor extends InterceptorsWrapper {
     options.queryParameters.forEach((key, value) {
       if (!mergedQueryParameters.containsKey(key)) {
         mergedQueryParameters[key] = value;
-      } 
+      }
     });
-    
+
     final dynamic data = options.data;
-    
+
     if (data == null) {
       request..size = 0;
     } else {
@@ -82,7 +84,7 @@ class Interceptor extends InterceptorsWrapper {
           }
 
           request.formDataFields = fields;
-          request.body = jsonEncode(map); 
+          request.body = jsonEncode(map);
         }
 
         if (data.files.isNotEmpty == true) {
@@ -136,8 +138,8 @@ class Interceptor extends InterceptorsWrapper {
       httpResponse..size = 0;
     } else {
       httpResponse
-      ..body = Helper.encodeRawJson(response.data)
-      ..size = utf8.encode(response.data.toString()).length;
+        ..body = Helper.encodeRawJson(response.data)
+        ..size = utf8.encode(response.data.toString()).length;
     }
 
     httpResponse.time = DateTime.now();

@@ -1,7 +1,7 @@
 import 'dart:async';
-import 'package:dio_inspector_dark/src/model/http_activity.dart';
-import 'package:dio_inspector_dark/src/model/http_error.dart';
-import 'package:dio_inspector_dark/src/model/http_response.dart';
+import 'package:dio_request_inspector/src/model/http_activity.dart';
+import 'package:dio_request_inspector/src/model/http_error.dart';
+import 'package:dio_request_inspector/src/model/http_response.dart';
 import 'package:rxdart/rxdart.dart';
 
 class HttpActivityStorage {

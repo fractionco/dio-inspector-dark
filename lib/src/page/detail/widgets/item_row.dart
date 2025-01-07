@@ -1,4 +1,4 @@
-import 'package:dio_inspector_dark/src/common/extensions.dart';
+import 'package:dio_request_inspector/src/common/extensions.dart';
 import 'package:flutter/material.dart';
 
 class ItemRow extends StatelessWidget {
@@ -21,7 +21,7 @@ class ItemRow extends StatelessWidget {
     if (value == 'N/A' || value == null) {
       return const SizedBox();
     }
-    
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.start,
@@ -33,7 +33,11 @@ class ItemRow extends StatelessWidget {
         const Padding(
           padding: EdgeInsets.only(top: 8),
         ),
-        ...value.toString().toMap().entries.map((e) => getListRow(e.key, e.value)),
+        ...value
+            .toString()
+            .toMap()
+            .entries
+            .map((e) => getListRow(e.key, e.value)),
       ],
     );
   }
@@ -62,7 +66,7 @@ class ItemRow extends StatelessWidget {
       ],
     );
   }
-  
+
   Widget getListRow(String name, var value) {
     return Padding(
       padding: const EdgeInsets.only(left: 16),

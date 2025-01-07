@@ -1,9 +1,9 @@
-import 'package:dio_inspector_dark/src/common/copy.dart';
-import 'package:dio_inspector_dark/src/common/helpers.dart';
-import 'package:dio_inspector_dark/src/model/http_activity.dart';
-import 'package:dio_inspector_dark/src/page/detail/widgets/item_column.dart';
-import 'package:dio_inspector_dark/src/page/detail/widgets/item_row.dart';
-import 'package:dio_inspector_dark/src/page/resources/app_color.dart';
+import 'package:dio_request_inspector/src/common/copy.dart';
+import 'package:dio_request_inspector/src/common/helpers.dart';
+import 'package:dio_request_inspector/src/model/http_activity.dart';
+import 'package:dio_request_inspector/src/page/detail/widgets/item_column.dart';
+import 'package:dio_request_inspector/src/page/detail/widgets/item_row.dart';
+import 'package:dio_request_inspector/src/page/resources/app_color.dart';
 import 'package:flutter/material.dart';
 
 class DetailPage extends StatefulWidget {
@@ -31,7 +31,7 @@ class _DetailPageState extends State<DetailPage> {
                 text: Copy.getActivity(widget.data),
                 message: 'Activity copied to clipboard',
               );
-             },
+            },
             child: Icon(
               Icons.copy,
               color: AppColor.white,
@@ -170,7 +170,8 @@ class _DetailPageState extends State<DetailPage> {
 
   Widget _responseWidget(HttpActivity data) {
     var contentTypeList = data.response?.headers?["content-type"];
-    final isImage = contentTypeList != null && contentTypeList.any((element) => element.contains('image'));
+    final isImage = contentTypeList != null &&
+        contentTypeList.any((element) => element.contains('image'));
 
     return SingleChildScrollView(
       physics: const BouncingScrollPhysics(),
@@ -179,11 +180,24 @@ class _DetailPageState extends State<DetailPage> {
         child: Column(
           children: [
             ItemRow(name: 'Received :', value: data.response?.time.toString()),
-            ItemRow(name: 'Status Code :', value: data.response?.status.toString()),
-            ItemRow(name: 'Bytes Received :', value: Helper.formatBytes(data.response?.size ?? 0)),
-            ItemRow(name: 'Headers', value: Helper.encodeRawJson(data.response?.headers), useHeaderFormat: true),
-            if (!isImage) ItemColumn(name: 'Body :', value: data.response?.body),
-            if (isImage) ItemColumn(name: 'Body :', value: '', isImage: isImage, showCopyButton: false,),
+            ItemRow(
+                name: 'Status Code :', value: data.response?.status.toString()),
+            ItemRow(
+                name: 'Bytes Received :',
+                value: Helper.formatBytes(data.response?.size ?? 0)),
+            ItemRow(
+                name: 'Headers',
+                value: Helper.encodeRawJson(data.response?.headers),
+                useHeaderFormat: true),
+            if (!isImage)
+              ItemColumn(name: 'Body :', value: data.response?.body),
+            if (isImage)
+              ItemColumn(
+                name: 'Body :',
+                value: '',
+                isImage: isImage,
+                showCopyButton: false,
+              ),
           ],
         ),
       ),
@@ -201,12 +215,14 @@ class _DetailPageState extends State<DetailPage> {
             children: [
               Icon(Icons.warning, color: AppColor.primary, size: 60),
               SizedBox(height: 14),
-              Text('No error found', style: TextStyle(color: AppColor.primary, fontSize: 20)),
+              Text('No error found',
+                  style: TextStyle(color: AppColor.primary, fontSize: 20)),
             ],
           ),
         ),
       );
-    };
+    }
+    ;
 
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),

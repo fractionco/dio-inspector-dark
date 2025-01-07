@@ -1,5 +1,4 @@
-
-import 'package:dio_inspector_dark/dio_request_inspector.dart';
+import 'package:dio_request_inspector/dio_request_inspector.dart';
 
 final DioRequestInspector inspector = DioRequestInspector(
   isDebugMode: true,

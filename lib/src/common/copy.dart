@@ -1,8 +1,8 @@
 import 'dart:io';
 
-import 'package:dio_inspector_dark/src/common/extensions.dart';
-import 'package:dio_inspector_dark/src/common/helpers.dart';
-import 'package:dio_inspector_dark/src/model/http_activity.dart';
+import 'package:dio_request_inspector/src/common/extensions.dart';
+import 'package:dio_request_inspector/src/common/helpers.dart';
+import 'package:dio_request_inspector/src/model/http_activity.dart';
 
 class Copy {
   static String getCurlCommand(HttpActivity call) {
@@ -25,7 +25,9 @@ class Copy {
     }
 
     final String? requestBody = call.request?.body?.toString();
-    if (requestBody != null && requestBody.isNotEmpty && requestBody != 'null') {
+    if (requestBody != null &&
+        requestBody.isNotEmpty &&
+        requestBody != 'null') {
       curlCmd.write(" --data \$'${requestBody.replaceAll("\n", r"\n")}'");
     }
 
@@ -58,11 +60,12 @@ class Copy {
     }
 
     return curlCmd.toString();
-  } 
+  }
 
   static String getActivity(HttpActivity data) {
     var contentTypeList = data.response?.headers?["content-type"];
-    final isImage = contentTypeList != null && contentTypeList.any((element) => element.contains('image'));
+    final isImage = contentTypeList != null &&
+        contentTypeList.any((element) => element.contains('image'));
 
     final StringBuffer activityDetails = StringBuffer();
 
@@ -77,28 +80,27 @@ class Copy {
     activityDetails.writeln('Time: ${data.request?.time}');
     activityDetails.writeln('Started: ${data.response?.time}');
     activityDetails.writeln('Duration: ${Helper.formatTime(data.duration)}');
-    activityDetails.writeln('Bytes Sent: ${Helper.formatBytes(data.request?.size ?? 0)}');
-    activityDetails.writeln('Bytes Received: ${Helper.formatBytes(data.response?.size ?? 0)}');
+    activityDetails
+        .writeln('Bytes Sent: ${Helper.formatBytes(data.request?.size ?? 0)}');
+    activityDetails.writeln(
+        'Bytes Received: ${Helper.formatBytes(data.response?.size ?? 0)}');
 
     activityDetails.writeln('\n--- Request ---');
-    activityDetails.writeln('Headers: ${Helper.encodeRawJson(data.request?.headers).isJson 
-      ? Helper.encodeRawJson(data.request?.headers).prettify 
-      : Helper.encodeRawJson(data.request?.headers)}');
+    activityDetails.writeln(
+        'Headers: ${Helper.encodeRawJson(data.request?.headers).isJson ? Helper.encodeRawJson(data.request?.headers).prettify : Helper.encodeRawJson(data.request?.headers)}');
 
-    activityDetails.writeln('Query Parameters: ${Helper.encodeRawJson(data.request?.queryParameters).isJson
-      ? Helper.encodeRawJson(data.request?.queryParameters).prettify
-      : Helper.encodeRawJson(data.request?.queryParameters)}');
-    
-    activityDetails.writeln('Body: ${(data.request?.body ?? '').isJson 
-      ? data.request?.body.prettify 
-      : data.request?.body}');
+    activityDetails.writeln(
+        'Query Parameters: ${Helper.encodeRawJson(data.request?.queryParameters).isJson ? Helper.encodeRawJson(data.request?.queryParameters).prettify : Helper.encodeRawJson(data.request?.queryParameters)}');
+
+    activityDetails.writeln(
+        'Body: ${(data.request?.body ?? '').isJson ? data.request?.body.prettify : data.request?.body}');
 
     activityDetails.writeln('\n--- Response ---');
     activityDetails.writeln('Status Code: ${data.response?.status}');
-    activityDetails.writeln('Headers: ${Helper.encodeRawJson(data.response?.headers)}');
-    activityDetails.writeln('Body: ${(data.response?.body ?? '').isJson 
-    ? data.response?.body.prettify
-    : isImage ? "Image Body" : data.response?.body}');
+    activityDetails
+        .writeln('Headers: ${Helper.encodeRawJson(data.response?.headers)}');
+    activityDetails.writeln(
+        'Body: ${(data.response?.body ?? '').isJson ? data.response?.body.prettify : isImage ? "Image Body" : data.response?.body}');
 
     if (data.error?.error != null) {
       activityDetails.writeln('\n--- Error ---');
